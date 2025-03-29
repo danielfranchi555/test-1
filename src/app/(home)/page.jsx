@@ -1,11 +1,11 @@
 import React from 'react';
-import { PrismaClient } from '@prisma/client';
 import ButtonLogut from '@/components/ButtonLogut';
 
 export default async function page() {
-  const prisma = new PrismaClient();
-  const users = await prisma.user.findMany();
-
+  const { data: users, error } = await getUsers();
+  if (error) {
+    return <div>{error.message}</div>;
+  }
   return (
     <main className="flex h-screen w-full flex-col items-center justify-center bg-blue-200">
       <div>
