@@ -57,7 +57,6 @@ export async function signUp(prevState: { success: boolean; message: string }, f
 
 // recibir el estado previo ({})
 export async function login(prevState: { success: boolean; message: string }, formData: FormData) {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   const prisma = new PrismaClient();
   const email = formData.get('email');
   const password = formData.get('password');
