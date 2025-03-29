@@ -52,7 +52,6 @@ export async function createSession(userId: string) {
   redirect('/');
 }
 export async function deleteSession() {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
   (await cookies()).delete('session');
   redirect('/auth/login');
 }
