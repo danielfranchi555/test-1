@@ -5,6 +5,7 @@ import { Label } from './ui/label';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { sendEmail } from '@/app/actions/auth/resend';
+import Link from 'next/link';
 
 const ForgotPassword = () => {
   const initialState = { success: false, message: '' };
@@ -22,7 +23,7 @@ const ForgotPassword = () => {
           <div className="grid gap-6">
             <div className="grid gap-6">
               <div className="grid gap-3">
-                <Label htmlFor="email">New Password</Label>
+                <Label htmlFor="email">Email</Label>
                 <Input id="email" type="email" name="email" required />
               </div>
               <Button type="submit" disabled={isPending}>
@@ -37,9 +38,9 @@ const ForgotPassword = () => {
             </div>
             <div className="text-center text-sm">
               Don&apos;t have an account?{' '}
-              <a href="#" className="underline underline-offset-4">
+              <Link href="/auth/signup" className="underline underline-offset-4">
                 Sign up
-              </a>
+              </Link>
             </div>
           </div>
         </form>

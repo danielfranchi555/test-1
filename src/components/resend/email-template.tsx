@@ -1,13 +1,15 @@
 import * as React from 'react';
 
 interface EmailTemplateProps {
-  firstName: string;
+  resetLink: string;
+  userName: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ firstName }) => (
+export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ resetLink, userName }) => (
   <div>
-    <h1>Welcome, {firstName}!</h1>
+    <h1>Reset Password</h1>
+    <p>Hello {userName},</p>
     <p>Please click the link below to reset your password</p>
-    <a href="https://www.google.com">Reset Password</a>
+    <a href={resetLink}>Reset Password</a>
   </div>
 );

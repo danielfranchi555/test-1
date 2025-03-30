@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { useActionState } from 'react';
 import { signUp } from '@/app/actions';
 import { LoaderCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export function FormRegister({ className, ...props }: React.ComponentProps<'div'>) {
   const initialState = { success: false, message: '' };
@@ -49,6 +50,10 @@ export function FormRegister({ className, ...props }: React.ComponentProps<'div'
               </div>
               <div className="grid gap-6">
                 <div className="grid gap-3">
+                  <Label htmlFor="email">Name</Label>
+                  <Input id="name" type="text" name="name" placeholder="user name" required />
+                </div>
+                <div className="grid gap-3">
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
@@ -61,9 +66,12 @@ export function FormRegister({ className, ...props }: React.ComponentProps<'div'
                 <div className="grid gap-3">
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
-                    <a href="#" className="ml-auto text-sm underline-offset-4 hover:underline">
+                    <Link
+                      href="/auth/forgot-password"
+                      className="ml-auto text-sm underline-offset-4 hover:underline"
+                    >
                       Forgot your password?
-                    </a>
+                    </Link>
                   </div>
                   <Input name="password" id="password" type="password" required />
                 </div>
@@ -86,10 +94,10 @@ export function FormRegister({ className, ...props }: React.ComponentProps<'div'
                 <p className="text-red-500 text-center text-sm">{state.message}</p>
               )}
               <div className="text-center text-sm">
-                Don&apos;t have an account?{' '}
-                <a href="#" className="underline underline-offset-4">
-                  Sign up
-                </a>
+                have an account?{' '}
+                <Link href="#" className="underline underline-offset-4">
+                  Sign In
+                </Link>
               </div>
             </div>
           </form>

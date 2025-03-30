@@ -1,6 +1,7 @@
 import React from 'react';
 import ButtonLogut from '@/components/ButtonLogut';
 import { getUsers } from '@/app/actions/auth/users';
+
 export default async function page() {
   const { data: users, error } = await getUsers();
   if (error) {
